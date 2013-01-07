@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="ui-mobile-rendering">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="css/custom.css" />
+
+    <!-- The Templates -->
+    <script type="text/html" id="home">
+		<button class="add btn btn-primary" type="button" data-toggle="modal" data-target="#form" >Agregar</button>
+		<ul data-role="listview">
+		{{#items}}
+		<li>{{attributes.name}}<button class="del btn btn-danger" data-id="{{id}}">Eliminar</button><button class="edit btn btn-warning" data-id="{{id}}">Modificar</button></li>
+		{{/items}}
+		</ul>
+		<div class="modal hide fade" id="form">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Modal header</h3>
+  </div>
+  <form>
+  <div class="modal-body">   
+<label>Id:</label><input id="wineId" name="id" type="text" disabled />
+<label>Name:</label><input type="text" id="name" name="name"  required/>
+<label>Grapes:</label><input type="text" id="grapes" name="grapes" />
+<label>Country:</label><input type="text" id="country" name="country" />
+<label>Region:</label><input type="text" id="region" name="region"  />
+<label>Year:</label><input type="text" id="year" name="year"  />
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-toggle="modal" data-target="#form">Close</a>
+    <input type="submit" class="btn btn-primary" value="Guardar cambios">
+  </div>
+  </form>
+</div>
+    </script>
+<script type="text/template" id="list-wines">
+<div class="leftArea">
+    <ul id="wineList">
+	<li><a href='#wines/<%= id %>'><%= name %></a></li>
+	</ul>
+</div>
+
+</script>
+<script type="text/template" id="wine-list-item">
+	<li><a href='#wines/<%= id %>'><%= name %></a></li>
+</script>
+
+<script type="text/template" id="wine-details">
+
+<div class="form-left-col">
+
+<label>Id:</label>
+<input id="wineId" name="id" type="text" disabled />
+
+<label>Name:</label>
+<input type="text" id="name" name="name" value="<%= name %>" required/>
+
+<label>Grapes:</label>
+<input type="text" id="grapes" name="grapes" value="<%= grapes %>"/>
+
+<label>Country:</label>
+<input type="text" id="country" name="country" value="<%= country %>"/>
+
+<label>Region:</label>
+<input type="text" id="region" name="region"  value="<%= region %>"/>
+
+<label>Year:</label>
+<input type="text" id="year" name="year"  value="<%= year %>"/>
+
+</div>
+
+<div class="form-right-col">
+<img height="300" src="pics/<%= picture %>"/>
+<label>Notes:</label>
+<textarea id="description" name="description"><%= description %></textarea>
+</div>
+
+</script>
+    
+
+</head>
+
+<body>
+<div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index1.html">Prueba</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="./index.html">Home</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+	<header class="jumbotron subhead" id="overview">
+	  <div class="container">
+		<h1>Crud</h1>
+		<p class="lead">CRUD</p>
+	  </div>
+	</header>
+
+
+<div class="container" id="content">
+
+</div>
+<footer class="container">
+	Echo por mariano
+</footer>
+<!-- The Scripts -->
+	<!--<script type="text/javascript" src="js/klass.min.js"></script>-->
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>
+    <!--<script src="lib/backbone-localstorage.js"></script>-->
+    <script src="lib/mustache.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
